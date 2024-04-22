@@ -1,7 +1,7 @@
 <?php
 // Q1 変数と文字列
 $name = '奥西';
-echo  '私の名前は「'. $name .'」です。' . "\n";
+echo  '私の名前は「' . $name . '」です。' . "\n";
 
 // Q2 四則演算
 $num = 5 * 4;
@@ -16,14 +16,10 @@ echo date('現在時刻は、Y年m月d日 H時i分s秒です。') . "\n";
 // Q4 条件分岐-1 if文
 $device = 'mac';
 
-if ($device === 'windows') {
-  echo '使用OSは、windowsです。' . "\n";
+if ($device === 'mac' || $device === 'windows') {
+  echo '使用OSは、' . $device . 'です。' . "\n";
 } else {
-  if ($device === 'mac') {
-  echo '使用OSは、macです。' . "\n";
-  } else {
   echo 'どちらでもありません。' . "\n";
-  }
 }
 
 // Q5 条件分岐-2 三項演算子
@@ -32,7 +28,14 @@ $message = ($age >= 18) ? '成人です。' . "\n" : '未成年です。' . "\n"
 echo $message;
 
 // Q6 配列
-$prefectures = ['東京都', '神奈川県', '千葉県', '埼玉県', '群馬県', '栃木県', '茨城県'];
+$prefectures = 
+['東京都',
+'神奈川県',
+'千葉県',
+'埼玉県',
+'群馬県',
+'栃木県',
+'茨城県'];
 echo ($prefectures[2] . 'と' . $prefectures[3] . 'は関東地方の都道府県です。') . "\n";
 
 // Q7 連想配列-1
@@ -58,10 +61,14 @@ foreach ($kanto as $pref => $city) {
 }
 
 // Q9 連想配列-3
-$kanto['山梨県'] = '甲府市';
-$kanto['沖縄県'] = '那覇市';
+$no_kanto = [
+  '山梨県' => '甲府市',
+  '沖縄県' => '那覇市'
+];
 
-foreach ($kanto as $pref => $city) {
+$japan = array_merge($kanto, $no_kanto);
+
+foreach ($japan as $pref => $city) {
   if ($pref === '山梨県' || $pref === '沖縄県') {
     echo $pref . 'は関東地方ではありません。' . "\n";
   } else {
@@ -71,23 +78,25 @@ foreach ($kanto as $pref => $city) {
 
 // Q10 関数-1
 function sayhello($name) {
-  echo $name . 'さん、こんにちは。' . "\n";
+  return $name . 'さん、こんにちは。' . "\n";
 }
 
-sayhello('金谷');
-sayhello('安藤');
+echo sayhello('金谷');
+echo sayhello('安藤');
 
 // Q11 関数-2
-function calcTaxInPrice($price) {
-  $result = $price * 1.1;
-  return $price . '円の商品の税込価格は' . $result . '円です。' . "\n";
+$price = 1000;
+function calcTaxInPrice($taxOutPrice) {
+  $result = $taxOutPrice * 1.1;
+  return $result;
 }
 
-$taxInPrice = calcTaxInPrice(1000);
-echo $taxInPrice;
+$taxInPrice = calcTaxInPrice($price);
+echo $price . '円の商品の税込価格は' . $taxInPrice . '円です。' . "\n";
 
 // Q12 関数とif文
-function distinguishNum($dis_num) {
+function distinguishNum($dis_num) 
+{
   if($dis_num % 2 === 0){
     echo $dis_num . 'は偶数です。' . "\n";
   } else {
@@ -95,9 +104,8 @@ function distinguishNum($dis_num) {
   }
 }
 
-distinguishNum(15);
-distinguishNum(28);
-
+distinguishNum(15) . "\n";
+distinguishNum(28) . "\n";
 
 // Q13 関数とswitch文
 function evaluateGrade($grade) {
