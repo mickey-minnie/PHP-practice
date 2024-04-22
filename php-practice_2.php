@@ -1,6 +1,6 @@
 <?php
 // Q1 tic-tac問題
-for ($i=1; $i < 101; $i++) { 
+for ($i = 1; $i < 101; $i++) { 
   if ($i % 4 === 0 && $i % 5 === 0) {
     echo 'tic-tac' . "\n";
   } elseif ($i % 4 === 0) {
@@ -36,7 +36,7 @@ echo $personalInfos[1]['name'] . 'の電話番号は' . $personalInfos[1]['tel']
 
 // Q2-2
 foreach ($personalInfos as $index => $infos) {
-  echo $index+1 . '番目の' . $infos['name'] . 'のメールアドレスは' . $infos['mail'] . 'で、電話番号は' . $infos['tel'] . 'です。' . "\n";
+  echo $index + 1 . '番目の' . $infos['name'] . 'のメールアドレスは' . $infos['mail'] . 'で、電話番号は' . $infos['tel'] . 'です。' . "\n";
 }
 
 //Q2-3
